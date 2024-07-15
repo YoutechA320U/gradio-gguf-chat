@@ -33,7 +33,6 @@ def complement(role,prompt,turn_config):
         prompt_C2RPV = (role+history + "USER: "+day+prompt+"\nASSISTANT: ")\
         .replace("<|endoftext|>\n", "</s>\n").replace("USER: ", "<s>USER: ")
         #calm2-7b-chat形式を(RP)vicuna形式に置換する。
-        print(prompt_C2RPV)
         output = llm(
                prompt=prompt_C2RPV,# 元々calm2-7b-chat用に作ったプログラムなのでここで整形。
                max_tokens=1024,
