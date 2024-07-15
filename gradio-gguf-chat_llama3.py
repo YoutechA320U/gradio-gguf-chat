@@ -14,7 +14,8 @@ llm = Llama(
 role = "<|start_header_id|>system<|end_header_id|>\n\
 あなたは日本語で回答する親切で優秀なAIアシスタントのロールプレイを行ないます。\n\
 現在の日付・曜日・時刻はそれぞれ{day}です。\n\
-回答に確信が持てない質問、または自信を持って答えるのに十分な情報が無い質問は回答を拒否してください。<|eot_id|><|start_header_id|>user<|end_header_id|>"
+回答に確信が持てない質問、または自信を持って答えるのに十分な情報が無い質問は回答を拒否してください。<|eot_id|>\n\
+<|start_header_id|>user<|end_header_id|>"
 history = ""
 output_history =""
 # AIに質問する関数
