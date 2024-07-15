@@ -2,7 +2,7 @@ from llama_cpp import Llama #llama.cppのPythonライブラリであるllama-cpp
 import gradio as gr #Gradio AIの試作で広く使われているブラウザGUIライブラリ
 import re #テキスト整形のライブラリ
 import datetime #時刻取得ライブラリ
-model="F:\gguf\EZO-Common-9B-gemma-2-it-Q8_0.gguf" #対象のモデルのパスを入力。
+model="hoge_huga.gguf" #対象のモデルのパスを入力。
 llm = Llama(
       model_path=model,
       n_gpu_layers=-1, # #GPUにロードするレイヤー数（llama-cpp-pythonがcuda版の場合）
