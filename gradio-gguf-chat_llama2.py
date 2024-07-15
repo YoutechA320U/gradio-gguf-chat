@@ -34,7 +34,6 @@ def complement(role,prompt,turn_config):
    if prompt !="":
         prompt_C2L = (role+history + "USER: "+prompt+"\nASSISTANT: ")\
          .replace("\nASSISTANT: ", " [/INST]").replace("<|endoftext|>\n", "</s>").replace("</s>\nUSER: ", "</s><s>[INST] ").replace("USER: ", "<s>")
-        print(prompt_C2L)
         output = llm(
                prompt=prompt_C2L, # 元々calm2-7b-chat用に作ったプログラムなのでここで整形。
                max_tokens=1024,
