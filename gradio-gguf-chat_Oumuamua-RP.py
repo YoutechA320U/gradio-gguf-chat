@@ -30,7 +30,6 @@ def complement(role,prompt,turn_config):
         prompt_C2RPA = (role+history + "USER: "+prompt+"\nASSISTANT: ")\
         .replace("<|endoftext|>\nUSER: ", "」</s>\n\n### 入力:\nユーザー「").replace("<|endoftext|>\n", "」</s>\n").replace("USER: ", "### 入力:\nユーザー「").replace("\nASSISTANT: ", "」\n\n### 応答:\nチャットボット「")
         #calm2-7b-chat形式を(RP)Alpaca形式に置換する。
-        print(prompt_C2RPA)
         output = llm(
                prompt=prompt_C2RPA, # 元々calm2-7b-chat用に作ったプログラムなのでここで整形。
                max_tokens=1024,
