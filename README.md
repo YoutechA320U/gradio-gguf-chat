@@ -2,7 +2,7 @@
 
 gradioで作られたggufモデル用汎用UI
 
-gradioを使わずgradio.Blocksのみで作られているため拡張性に優れます。
+gradio.Interfaceを使わずgradio.Blocksのみで作られているため拡張性に優れます。
 
 ![Picture](https://github.com/YoutechA320U/gradio-gguf-chat/blob/master/image.png "サンプル") 
 
