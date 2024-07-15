@@ -51,7 +51,7 @@ def complement(role,prompt,turn_config):
                mirostat_mode=0,
                mirostat_tau=5.0,
                mirostat_eta=0.1,
-               stop=["<</SYS>>","[INST]","[/INST]",'</SYS>'] # ストップ。特定の文字を生成したらその文字を生成せず停止する。
+               stop=["<</SYS>>","[INST]","[/INST]","</SYS>","prompt_tokens"] # ストップ。特定の文字を生成したらその文字を生成せず停止する。
         )
         output =str(output)
         output= output.split("', ")

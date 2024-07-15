@@ -50,7 +50,7 @@ def complement(role,prompt,turn_config):
                mirostat_mode=0,
                mirostat_tau=5.0,
                mirostat_eta=0.1,
-               stop=["※","（","(","。\n【","！\n【","？\n【","USER:","ASSISTANT"] # Stop generating just before the model would generate a new question
+               stop=["※","（","(","。\n【","！\n【","？\n【","USER:","ASSISTANT","prompt_tokens"] # Stop generating just before the model would generate a new question
         )
         output =str(output)
         output= output.split("', ")
