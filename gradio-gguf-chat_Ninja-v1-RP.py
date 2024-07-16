@@ -51,10 +51,9 @@ def complement(role,prompt,turn_config):
                mirostat_eta=0.1,
                stop=["※","（","(","。\n【","！\n【","？\n【","USER:","ASSISTANT","prompt_tokens"] # Stop generating just before the model would generate a new question
         )
-        output =str(output)
-        output= output.split("', ")
-        output =output[3]
-        output =output.replace("'choices': [{'text': '", "").replace("\\n", "\n")
+        output= output["choices"][0]["text"]
+        output =output.replace("\\n", "\n").replace("\\n", "\n").replace("\\u3000", "\u3000")\
+            .replace("!","！").replace("?","？")
         while output[-1]=="\n":
               output=output[:-1]
         while output[0]=="\n":
