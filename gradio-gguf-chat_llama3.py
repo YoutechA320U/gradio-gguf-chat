@@ -53,8 +53,7 @@ def complement(role,prompt,turn_config):
                stop=["<|start_header_id|>","<s>","</s>","prompt_tokens"] # ストップ。特定の文字を生成したらその文字を生成せず停止する。
         )
         output= output["choices"][0]["text"]
-        output =output.replace("\\n", "\n").replace("\\n", "\n").replace("\\u3000", "\u3000")\
-            .replace("!","！").replace("?","？").replace('\'choices\': [{\'text\': "','').replace('", \'index\': 0, \'logprobs\': None, \'finish_reason\': \'stop\'}], \'usage\': {\'',"")
+        output =output.replace("\\n", "\n").replace("\\u3000", "\u3000").replace("!","！").replace("?","？").replace('\'choices\': [{\'text\': "','').replace('", \'index\': 0, \'logprobs\': None, \'finish_reason\': \'stop\'}], \'usage\': {\'',"")
         while output[-1]=="\n":
               output=output[:-1]
         while output[0]=="\n":
