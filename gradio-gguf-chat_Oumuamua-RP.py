@@ -49,8 +49,7 @@ def complement(role,prompt,turn_config):
                stop=["</s>","\n### 入力:","\n### 応答:","prompt_tokens"] # ストップ。特定の文字を生成したらその文字を生成せず停止する。
         )
         output= output["choices"][0]["text"]
-        output =output.replace("\\n", "\n").replace("\\n", "\n").replace("\\u3000", "\u3000")\
-            .replace("!","！").replace("?","？")
+        output =output.replace("\\n", "\n").replace("\\u3000", "\u3000").replace("!","！").replace("?","？")
         print( prompt_C2RPA+output+"</s>")
         output =output.replace("チャットボット「", "").replace("」\n", "\n").replace("」 ", "")
         while output[-1]=="」":
