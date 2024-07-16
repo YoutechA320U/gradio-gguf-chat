@@ -48,10 +48,9 @@ def complement(role,prompt,turn_config):
                mirostat_eta=0.1,
                stop=["</s>","\n### 入力:","\n### 応答:","prompt_tokens"] # ストップ。特定の文字を生成したらその文字を生成せず停止する。
         )
-        output =str(output)
-        output= output.split("', ")
-        output =output[3]
-        output =output.replace("'choices': [{'text': '", "").replace("\\n", "\n").replace("\\u3000", "\u3000").replace("!","！").replace("?","？")
+        output= output["choices"][0]["text"]
+        output =output.replace("\\n", "\n").replace("\\n", "\n").replace("\\u3000", "\u3000")\
+            .replace("!","！").replace("?","？")
         print( prompt_C2RPA+output+"</s>")
         output =output.replace("チャットボット「", "").replace("」\n", "\n").replace("」 ", "")
         while output[-1]=="」":
