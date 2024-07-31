@@ -33,7 +33,7 @@ def complement(role,prompt,turn_config):
    role += "\n\n"
    if prompt !="":
         prompt_C2L3 = (role+history + "USER: "+prompt+"\nASSISTANT: ")\
-         .replace("\nASSISTANT: ", "<|eot_id|><|start_header_id|>assistant <|end_header_id|>\n\n").replace("<|endoftext|>", "<|eot_id|>").replace("\nUSER: ", "<|start_header_id|>user <|end_header_id|>\n\n").replace("USER: ", "<|start_header_id|>user<|end_header_id|>\n\n").replace("<|begin_of_text|>","")
+         .replace("\nASSISTANT: ", "<|eot_id|><|start_header_id|>assistant <|end_header_id|>\n\n").replace("<|endoftext|>", "<|eot_id|>").replace("\nUSER: ", "<|start_header_id|>user <|end_header_id|>\n\n").replace("USER: ", "").replace("<|begin_of_text|>","")
         output = llm(
                prompt=prompt_C2L3, # 元々calm2-7b-chat用に作ったプログラムなのでここで整形。
                max_tokens=1024,
