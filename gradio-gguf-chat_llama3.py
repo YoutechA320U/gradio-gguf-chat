@@ -33,7 +33,7 @@ def complement(role,prompt,turn_config):
    role += "\n\n"
    if prompt !="":
         prompt_C2L3 = (role+history + "USER: "+prompt+"\nASSISTANT: ")\
-         .replace("\nASSISTANT: ", "<|eot_id|><|start_header_id|>assistant <|end_header_id|>\n\n").replace("<|endoftext|>", "<|eot_id|>").replace("\nUSER: ", "<|start_header_id|>user <|end_header_id|>\n\n").replace("USER: ", "").replace("<|begin_of_text|>","")
+         .replace("\nASSISTANT: ", "<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n").replace("<|endoftext|>", "<|eot_id|>").replace("<|end_header_id|>\n\nUSER: ", "<|start_header_id|>user<|end_header_id|>\n\n").replace("<|eot_id|>\nUSER: ", "<|eot_id|><|start_header_id|>user<|end_header_id|>\n\n").replace("<|begin_of_text|>","")
         output = llm(
                prompt=prompt_C2L3, # 元々calm2-7b-chat用に作ったプログラムなのでここで整形。
                max_tokens=1024,
@@ -53,7 +53,7 @@ def complement(role,prompt,turn_config):
                stop=["<|start_header_id|>","<s>","</s>","prompt_tokens"] # ストップ。特定の文字を生成したらその文字を生成せず停止する。
         )
         output= output["choices"][0]["text"]
-        output =output.replace("\\n", "\n").replace("\\u3000", "\u3000").replace("!","！").replace("?","？").replace('\'choices\': [{\'text\': "','').replace('", \'index\': 0, \'logprobs\': None, \'finish_reason\': \'stop\'}], \'usage\': {\'',"")
+        output =output.replace("\\n", "\n").replace("\\u3000", "\u3000").replace("!","！").replace("?","？")
         while output[-1]=="\n":
               output=output[:-1]
         while output[0]=="\n":
